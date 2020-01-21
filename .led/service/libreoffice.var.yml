@@ -1,0 +1,13 @@
+vars:
+  - VERSION
+  - PORT
+data:
+  VERSION:
+    title: LibreOffice version required
+    default: 3.6
+    type: list
+    items: 3.6
+  PORT:
+    title: Daemon listen port
+    default: 8100
+    type: integer

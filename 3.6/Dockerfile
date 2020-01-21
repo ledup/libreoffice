@@ -9,7 +9,8 @@ RUN curl -o libreoffice.tar.gz https://downloadarchive.documentfoundation.org/li
     && cd - \
     && rm libreoffice.tar.gz \
     && rm -rf LibO_${LO_VERSION}_Linux_x86-64_install-rpm_en-US \
-    && yum -y install sudo
+    && yum -y install sudo \
+    && yum clean all
 
 ADD script/entrypoint.sh /
 ADD script/soffice /

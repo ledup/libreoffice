@@ -1,0 +1,12 @@
+version : '2'
+
+services: 
+   libreoffice:
+     container_name: ledup-test-libreoffice
+     image: ledup/libreoffice:3.6
+     hostname: libreoffice
+     environment:
+      SOFFICE_PORT: 8100
+     extends:
+       file: ~/.led/docker-base.yaml
+       service: localuser

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+SOFFICE_PORT=${SOFFICE_PORT:-8100}
+
+SOFFICE_USER="dev"
+SOFFICE_PATH="/opt/libreoffice3.6/program/soffice.bin"
+SOFFICE_ARGS="--headless --nologo --nofirststartwizard --nodefault --norestore --nocrashreport --nolockcheck --accept=socket,host=0.0.0.0,port=${SOFFICE_PORT};urp;"
+if pidof soffice.bin; then
+  echo "Headless soffice listener server has already started."
+  exit
+fi
+echo "Starting headless soffice listener server."
+if [ ! -d "/home/dev/libreoffice" ]; then
+  # the first run only generate configuration and shutdown!
+  sudo -u ${SOFFICE_USER} ${SOFFICE_PATH} ${SOFFICE_ARGS}
+fi
+sudo -u ${SOFFICE_USER} ${SOFFICE_PATH} ${SOFFICE_ARGS}
+
+
+
